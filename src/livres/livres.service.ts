@@ -7,28 +7,28 @@ import { Livre } from './livre.entity';
 export class LivresService {
   constructor(
     @InjectRepository(Livre)
-    private readonly livreRepository: Repository<Livre>,
+    private livresRepository: Repository<Livre>,
   ) {}
 
-  async findAll(): Promise<Livre[]> {
-    return this.livreRepository.find();
+  findAll(): Promise<Livre[]> {
+    return this.livresRepository.find();
   }
 
-  async findOne(id: number): Promise<Livre> {
-    return this.livreRepository.findOne({ where: { id } });
+  findOne(id: number): Promise<Livre> {
+    return this.livresRepository.findOne({ where: { id } });
   }
 
   async create(livre: Partial<Livre>): Promise<Livre> {
-    const newLivre = this.livreRepository.create(livre);
-    return this.livreRepository.save(newLivre);
+    const newLivre = this.livresRepository.create(livre);
+    return this.livresRepository.save(newLivre);
   }
 
   async update(id: number, livre: Partial<Livre>): Promise<Livre> {
-    await this.livreRepository.update(id, livre);
-    return this.findOne(id);
+    await this.livresRepository.update(id, livre);
+    return this.findOne(id); // Return updated book
   }
 
   async remove(id: number): Promise<void> {
-    await this.livreRepository.delete(id);
+    await this.livresRepository.delete(id);
   }
 }
