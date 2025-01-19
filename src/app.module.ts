@@ -11,8 +11,8 @@ import { CategoriesModule } from './categories/categories.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'passwordtktcpasca',
-      database: 'obs',
+      password: 'a69',
+      database: 'bibliotheca',
       autoLoadEntities: true,
       synchronize: true, // Disable in production
     }),
