@@ -9,6 +9,6 @@ export class Categorie {
   @Column()
   libelle: string;
 
-  @OneToMany(() => Livre, livre => livre.categorie)
+  @OneToMany(() => Livre, (livre) => livre.categorie)
   livres: Livre[];
 }

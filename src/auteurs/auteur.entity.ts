@@ -12,9 +12,9 @@ export class Auteur {
   @Column()
   prenoms: string;
 
-  @Column({ unique: true })
+  @Column({ nullable: true })
   email: string;
 
-  @OneToMany(() => Livre, livre => livre.auteur)
+  @OneToMany(() => Livre, (livre) => livre.auteur)
   livres: Livre[];
 }

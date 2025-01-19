@@ -18,11 +18,12 @@ export class LivresController {
 
   @Post()
   create(@Body() livre: Livre): Promise<Livre> {
+    console.log("Create livre", livre);
     return this.livresService.create(livre);
   }
 
   @Delete(':id')
   delete(@Param('id') id: number): Promise<void> {
-    return this.livresService.delete(id);
+    return this.livresService.remove(id);
   }
 }

@@ -13,15 +13,15 @@ export class Livre {
   @Column({ nullable: true })
   description: string;
 
-  @Column({ nullable: true })
+  @Column()
   nbPage: number;
 
   @Column({ nullable: true })
   image: string;
 
-  @ManyToOne(() => Categorie, categorie => categorie.livres)
+  @ManyToOne(() => Categorie, (categorie) => categorie.livres)
   categorie: Categorie;
 
-  @ManyToOne(() => Auteur, auteur => auteur.livres)
+  @ManyToOne(() => Auteur, (auteur) => auteur.livres)
   auteur: Auteur;
 }
